@@ -1,0 +1,6 @@
+module Pods_iOS6_HW25_DmitryDorodniy {
+  umbrella header "Pods-iOS6-HW25-DmitryDorodniy-umbrella.h"
+
+  export *
+  module * { export * }
+}
