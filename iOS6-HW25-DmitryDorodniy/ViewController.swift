@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var marvelImage = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
     let marvetDigitalComics = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&hasDigitalIssue=true&orderBy=focDate&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
 
-    var characters: [Character] = []
+    var comics: [Comic] = []
 
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -25,13 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        view.backgroundColor = .cyan
-        navigationItem.title = "Marvel Avengers"
+        navigationItem.title = "Marvel Digital Comics"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
         setupSearchBar()
         setupTableView()
-        fetchSeries(from: marvel50Characters)
+        fetchSeries(from: marvetDigitalComics)
     }
 
     private func setupTableView() {
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-
     }
 
     private func fetchSeries(from url: String) {
@@ -55,11 +53,10 @@ class ViewController: UIViewController {
 
             DispatchQueue.main.async {
                 let characters = char.data.results
-                self.characters = characters
+                self.comics = characters
                 self.tableView.reloadData()
 
             }
-
         }
     }
 }
@@ -75,7 +72,7 @@ private func getImage(url: String) -> UIImage? {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return comics.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,12 +80,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         var content = cell.defaultContentConfiguration()
 
-        content.text = "\(characters[indexPath.row].name)"
+        content.text = "\(comics[indexPath.row].title)"
 //        content.textProperties.font =
-        content.secondaryText = "numder of comics: \(characters[indexPath.row].comics.available)"
+        content.secondaryText = "issue number: \(Int(comics[indexPath.row].issueNumber ?? 0))"
         content.secondaryTextProperties.color = .secondaryLabel
-        let image = getImage(url: characters[indexPath.row].thumbnail.path.makeUrlThumb +
-                 characters[indexPath.row].thumbnail.imageExtension)
+        let image = getImage(url: (comics[indexPath.row].thumbnail?.path.makeUrlThumb ?? "") +
+                             (comics[indexPath.row].thumbnail?.imageExtension ?? ""))
         content.image = image
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
@@ -97,16 +94,16 @@ return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(characters[indexPath.row].name)
+        print(comics[indexPath.row].title)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
 
         detailVC.view.backgroundColor = .systemBackground
-        let image = getImage(url: characters[indexPath.row].thumbnail.path.makeUrlPortrait +
-                             characters[indexPath.row].thumbnail.imageExtension)
+        let image = getImage(url: (comics[indexPath.row].thumbnail?.path.makeUrlPortrait ?? "") +
+                             (comics[indexPath.row].thumbnail?.imageExtension ?? ""))
         detailVC.portraitImageView.image = image
-        detailVC.nameLabel.text = characters[indexPath.row].name
-        detailVC.detailLabel.text = characters[indexPath.row].description
+        detailVC.nameLabel.text = comics[indexPath.row].title
+        detailVC.detailLabel.text = comics[indexPath.row].description
 
         navigationController?.pushViewController(detailVC, animated: true)
 
@@ -120,7 +117,7 @@ extension ViewController: UISearchBarDelegate {
         var inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
         print(inputedText)
 
-        let urlString = "https://gateway.marvel.com:443/v1/public/characters?name=\(inputedText)&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+        let urlString = "https://gateway.marvel.com:443/v1/public/comics?format=comic&title=\(inputedText)&formatType=comic&hasDigitalIssue=true&orderBy=focDate&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
         print(urlString)
         print(inputedText)
         fetchSeries(from: urlString)
@@ -154,7 +151,7 @@ extension ViewController: UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        fetchSeries(from: marvel50Characters)
+       fetchSeries(from: marvetDigitalComics)
     }
 }
 

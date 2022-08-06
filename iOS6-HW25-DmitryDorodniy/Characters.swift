@@ -10,16 +10,17 @@ import Foundation
 struct DataMarvel: Decodable {
     let data: Results
 
-struct Results: Decodable {
-    let results: [Character]
-}
+    struct Results: Decodable {
+        let results: [Comic]
+    }
 }
 
-struct Character: Decodable {
-    let name: String
-    let description: String
-    let thumbnail: ImagePath
-    let comics: Available
+struct Comic: Decodable {
+    let title: String
+    let issueNumber: Double?
+    let description: String?
+    let thumbnail: ImagePath?
+    let characters: Heroes?
 
     struct ImagePath: Decodable {
         let path: String
@@ -31,9 +32,11 @@ struct Character: Decodable {
         }
     }
 
-    struct Available: Decodable {
-        let available: Int
+    struct Heroes: Decodable {
+        let items: [Name]
+
+        struct Name: Decodable {
+        let name: String
+        }
     }
-
-
 }
