@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
 
     let marvelComicsUrl = "https://gateway.marvel.com:443/v1/public/comics?dateDescriptor=thisMonth&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
-    let marvel50Characters = "https://gateway.marvel.com:443/v1/public/characters?&limit=50&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+    let marvel50Characters = "https://gateway.marvel.com:443/v1/public/characters?series=9085&limit=50&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
     var marvelImage = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
 
     var characters: [Character] = []
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
 //        view.backgroundColor = .cyan
-        navigationItem.title = "Marvel Characters:"
+        navigationItem.title = "Marvel Avengers:"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
         setupTableView()
@@ -93,6 +93,7 @@ return cell
                              characters[indexPath.row].thumbnail.imageExtension)
         detailVC.portraitImageView.image = image
         detailVC.nameLabel.text = characters[indexPath.row].name
+        detailVC.detailLabel.text = characters[indexPath.row].description
 
         navigationController?.pushViewController(detailVC, animated: true)
 

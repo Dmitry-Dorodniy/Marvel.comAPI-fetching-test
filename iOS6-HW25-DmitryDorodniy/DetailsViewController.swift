@@ -13,7 +13,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var portraitImageView: UIImageView!
 
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var detailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
