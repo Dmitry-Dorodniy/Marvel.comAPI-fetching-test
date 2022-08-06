@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var characters: [Character] = []
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
 
 
     override func viewDidLoad() {
@@ -27,8 +28,9 @@ class ViewController: UIViewController {
         navigationItem.title = "Marvel Avengers:"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
+        setupSearchBar()
         setupTableView()
-        fetchSeries()
+        fetchSeries(from: marvel50Characters)
     }
 
     private func setupTableView() {
@@ -37,16 +39,26 @@ class ViewController: UIViewController {
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-    private func fetchSeries() {
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
 
-        AF.request(marvel50Characters).responseDecodable(of: DataMarvel.self) { data in
+    }
+
+    private func fetchSeries(from url: String) {
+
+        AF.request(url).responseDecodable(of: DataMarvel.self) { data in
             guard let char = data.value else {
                 print("no data")
                 return }
-            let characters = char.data.results
-            self.characters = characters
-            print(characters[0])
-            self.tableView.reloadData()
+
+            DispatchQueue.main.async {
+                let characters = char.data.results
+                self.characters = characters
+                self.tableView.reloadData()
+
+            }
+
         }
     }
 }
@@ -99,4 +111,50 @@ return cell
 
     }
 }
+
+// MARK: - UISearchBarDelegate
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
+        print(inputedText)
+
+        let urlString = "https://gateway.marvel.com:443/v1/public/characters?name=\(inputedText)&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+        print(urlString)
+        print(inputedText)
+        fetchSeries(from: urlString)
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+//
+//            self.networkDataFetcher.fetchTracks(urlString: urlString) { searchResponse in
+//                guard let searchResponse = searchResponse else {
+//                    return
+//                }
+//                _ = searchResponse.results.map { track in
+//                    print("track name: \(track.trackName)")
+//                }
+//                self.searchResponse = searchResponse
+//                self.table.reloadData()
+//            }
+//            //        self.networkDataFetcher.fetchTracks(urlString: urlString) { searchResponse in
+//            //            guard let searchResponse = searchResponse else {
+//            //                return
+//            //            }
+//            //            searchResponse.results.map { track in
+//            //                print("track name: \(track.trackName)")
+//            //            }
+//            //            self.searchResponse = searchResponse
+//            //            self.table.reloadData()
+//            //        }
+//
+//        }
+//        )
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        fetchSeries(from: marvel50Characters)
+    }
+}
+
+
 
