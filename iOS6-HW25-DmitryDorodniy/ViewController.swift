@@ -10,11 +10,10 @@ import Alamofire
 
 class ViewController: UIViewController {
 
-
-    let marvelComicsUrl = "https://gateway.marvel.com:443/v1/public/comics?dateDescriptor=thisMonth&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
-    let marvel50Characters = "https://gateway.marvel.com:443/v1/public/characters?series=9085&limit=50&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
-    var marvelImage = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
-    let marvetDigitalComics = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&hasDigitalIssue=true&orderBy=focDate&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+let network = NetworkManager()
+//    let marvelComicsUrl = "https://gateway.marvel.com:443/v1/public/comics?dateDescriptor=thisMonth&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+//    let marvel50Characters = "https://gateway.marvel.com:443/v1/public/characters?series=9085&limit=50&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+//    var marvelImage = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
 
     var comics: [Comic] = []
 
@@ -30,7 +29,8 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         setupSearchBar()
         setupTableView()
-        fetchSeries(from: marvetDigitalComics)
+//        fetchSeries(from: Constants.marvelDigitalComics)
+        fetchComics(from: Constants.marvelDigitalComics)
     }
 
     private func setupTableView() {
@@ -44,18 +44,28 @@ class ViewController: UIViewController {
         searchController.searchBar.delegate = self
     }
 
+    private func fetchComics(from url: String) {
+        network.fetchSeries(from: url) { result in
+            switch result {
+            case .success(let comics):
+                self.comics = comics
+                self.tableView.reloadData()
+            case .failure(let error):
+                print("Error received requesting data: \(error.localizedDescription)")
+            }
+        }
+    }
     private func fetchSeries(from url: String) {
 
         AF.request(url).responseDecodable(of: DataMarvel.self) { data in
-            guard let char = data.value else {
+            guard let dataValue = data.value else {
                 print("no data")
                 return }
 
             DispatchQueue.main.async {
-                let characters = char.data.results
-                self.comics = characters
+                let comics = dataValue.data.results
+                self.comics = comics
                 self.tableView.reloadData()
-
             }
         }
     }
@@ -82,8 +92,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
         content.text = "\(comics[indexPath.row].title)"
 //        content.textProperties.font =
-        content.secondaryText = "issue number: \(Int(comics[indexPath.row].issueNumber ?? 0))"
-        content.secondaryTextProperties.color = .secondaryLabel
+//        content.secondaryText = "issue number: \(Int(comics[indexPath.row].issueNumber ?? 0))"
+//        content.secondaryTextProperties.color = .secondaryLabel
         let image = getImage(url: (comics[indexPath.row].thumbnail?.path.makeUrlThumb ?? "") +
                              (comics[indexPath.row].thumbnail?.imageExtension ?? ""))
         content.image = image
@@ -114,10 +124,11 @@ return cell
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
+        let inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
         print(inputedText)
 
         let urlString = "https://gateway.marvel.com:443/v1/public/comics?format=comic&title=\(inputedText)&formatType=comic&hasDigitalIssue=true&orderBy=focDate&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
+
         print(urlString)
         print(inputedText)
         fetchSeries(from: urlString)
@@ -151,7 +162,7 @@ extension ViewController: UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       fetchSeries(from: marvetDigitalComics)
+        fetchSeries(from: Constants.marvelDigitalComics)
     }
 }
 

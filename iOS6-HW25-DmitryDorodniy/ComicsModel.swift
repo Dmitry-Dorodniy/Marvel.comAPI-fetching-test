@@ -1,16 +1,10 @@
-//
-//  Characters.swift
-//  iOS6-HW25-DmitryDorodniy
-//
-//  Created by Dmitry Dorodniy on 04.08.2022.
-//
-
 import Foundation
 
 struct DataMarvel: Decodable {
     let data: Results
 
     struct Results: Decodable {
+        let total: Int
         let results: [Comic]
     }
 }
