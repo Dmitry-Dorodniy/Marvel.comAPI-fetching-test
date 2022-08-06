@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     let marvelComicsUrl = "https://gateway.marvel.com:443/v1/public/comics?dateDescriptor=thisMonth&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
     let marvel50Characters = "https://gateway.marvel.com:443/v1/public/characters?series=9085&limit=50&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
     var marvelImage = "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784"
+    let marvetDigitalComics = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&hasDigitalIssue=true&orderBy=focDate&limit=100&ts=1&apikey=7e1b58c9e3967cddad472e676e668a4e&hash=56ea6ee528ff5b2a8724f7a312bcc6f6"
 
     var characters: [Character] = []
 
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
 //        view.backgroundColor = .cyan
-        navigationItem.title = "Marvel Avengers:"
+        navigationItem.title = "Marvel Avengers"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
         setupSearchBar()
@@ -123,6 +124,7 @@ extension ViewController: UISearchBarDelegate {
         print(urlString)
         print(inputedText)
         fetchSeries(from: urlString)
+
 //        timer?.invalidate()
 //        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
 //
