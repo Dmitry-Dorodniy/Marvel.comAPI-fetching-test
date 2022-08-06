@@ -10,6 +10,7 @@
 		1E7EC27B0B6C9B2F6543F115 /* libPods-iOS6-HW25-DmitryDorodniy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 827C08D19B7156448D8E1C5C /* libPods-iOS6-HW25-DmitryDorodniy.a */; };
 		8A9B898E289C551E0063503F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898D289C551E0063503F /* TableViewCell.swift */; };
 		8A9B8990289D254C0063503F /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898F289D254C0063503F /* String + Ext.swift */; };
+		8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8991289E6F8C0063503F /* DetailsViewController.swift */; };
 		8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886B7289BFC70007780FD /* AppDelegate.swift */; };
 		8AE886BC289BFC70007780FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886BB289BFC70007780FD /* ViewController.swift */; };
 		8AE886BF289BFC70007780FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE886BD289BFC70007780FD /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		827C08D19B7156448D8E1C5C /* libPods-iOS6-HW25-DmitryDorodniy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS6-HW25-DmitryDorodniy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9B898D289C551E0063503F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A9B898F289D254C0063503F /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		8A9B8991289E6F8C0063503F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8AE886B4289BFC70007780FD /* iOS6-HW25-DmitryDorodniy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS6-HW25-DmitryDorodniy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE886B7289BFC70007780FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE886BB289BFC70007780FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
 				8AE886BB289BFC70007780FD /* ViewController.swift */,
+				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
 				8A9B898F289D254C0063503F /* String + Ext.swift */,
 				8AE886CB289C32F7007780FD /* Characters.swift */,
 				8AE886BD289BFC70007780FD /* Main.storyboard */,
@@ -86,7 +89,6 @@
 				7069DFFEB5DFFC5DDAB5E589 /* Pods-iOS6-HW25-DmitryDorodniy.debug.xcconfig */,
 				EC39E389FC0219A47400577C /* Pods-iOS6-HW25-DmitryDorodniy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -200,6 +202,7 @@
 				8A9B8990289D254C0063503F /* String + Ext.swift in Sources */,
 				8AE886CC289C32F7007780FD /* Characters.swift in Sources */,
 				8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */,
+				8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
