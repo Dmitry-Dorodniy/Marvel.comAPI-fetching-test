@@ -1,10 +1,3 @@
-//
-//  GetURL.swift
-//  iOS6-HW25-DmitryDorodniy
-//
-//  Created by Dmitry Dorodniy on 07.08.2022.
-//
-
 import Foundation
 
 class URLConstructor {

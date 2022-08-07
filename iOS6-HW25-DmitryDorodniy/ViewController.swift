@@ -2,12 +2,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
 
     private let network = NetworkManager()
     private let urlConstructor = URLConstructor()
     private var timer: Timer?
     private var comics: [Comic] = []
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,8 @@ class ViewController: UIViewController {
         fetchComics(from: urlConstructor.getUrl(name: nil, value: nil))
     }
 
+    // MARK: - Settings Views
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,6 +49,8 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    // MARK: - Private functions
+
     private func fetchComics(from url: String) {
         network.fetchSeries(from: url) { (result) in
             switch result {
@@ -57,7 +65,7 @@ class ViewController: UIViewController {
     }
 
     private func getImage(path: String?, size: ImageSize, extention: String?) -> UIImage? {
-        
+
         if let path = path, let extention = extention {
             let url = path.makeHttps + size.set + extention
             print(url)
