@@ -56,6 +56,9 @@ class ViewController: UIViewController {
             switch result {
             case .success(let comics):
                 self.comics = comics
+                if self.comics.isEmpty {
+                    self.showAlert(title: ":(", message: "Title not found")
+                }
                 self.tableView.reloadData()
             case .failure(let error):
                 print("Error received requesting data: \(error.localizedDescription)")
@@ -120,11 +123,8 @@ extension ViewController: UISearchBarDelegate {
         guard !searchText.isEmpty else { return }
         
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
             self.fetchComics(from: self.urlConstructor.getUrl(name: "title", value: searchText))
-            if self.comics.isEmpty {
-                self.showAlert(title: "Title error", message: "Character not found")
-            }
         })
     }
 

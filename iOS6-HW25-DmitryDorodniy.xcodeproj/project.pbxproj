@@ -54,6 +54,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A07224228A0577200C9DDD3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8A07224528A0585500C9DDD3 /* App */,
+				8A07224628A0586D00C9DDD3 /* Scenes */,
+				8A07224728A058AA00C9DDD3 /* Extentions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8A07224328A057C300C9DDD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886BD289BFC70007780FD /* Main.storyboard */,
+				8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */,
+				8AE886C0289BFC71007780FD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A07224428A0584400C9DDD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886CB289C32F7007780FD /* ComicsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A07224528A0585500C9DDD3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A07224628A0586D00C9DDD3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8A07224828A058EC00C9DDD3 /* Network */,
+				8A07224428A0584400C9DDD3 /* Model */,
+				8A07224928A0592700C9DDD3 /* ViewController */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8A07224728A058AA00C9DDD3 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				8A9B898F289D254C0063503F /* String + Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		8A07224828A058EC00C9DDD3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
+				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
+				8A9B8999289FB8650063503F /* URLConstructor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8A07224928A0592700C9DDD3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886BB289BFC70007780FD /* ViewController.swift */,
+				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
+				8A9B898D289C551E0063503F /* TableViewCell.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		8AE886AB289BFC70007780FD = {
 			isa = PBXGroup;
 			children = (
@@ -75,18 +149,8 @@
 		8AE886B6289BFC70007780FD /* iOS6-HW25-DmitryDorodniy */ = {
 			isa = PBXGroup;
 			children = (
-				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
-				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
-				8AE886BB289BFC70007780FD /* ViewController.swift */,
-				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
-				8A9B898D289C551E0063503F /* TableViewCell.swift */,
-				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
-				8A9B8999289FB8650063503F /* URLConstructor.swift */,
-				8A9B898F289D254C0063503F /* String + Ext.swift */,
-				8AE886CB289C32F7007780FD /* ComicsModel.swift */,
-				8AE886BD289BFC70007780FD /* Main.storyboard */,
-				8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */,
-				8AE886C0289BFC71007780FD /* Assets.xcassets */,
+				8A07224228A0577200C9DDD3 /* Sources */,
+				8A07224328A057C300C9DDD3 /* Resources */,
 				8AE886C5289BFC71007780FD /* Info.plist */,
 			);
 			path = "iOS6-HW25-DmitryDorodniy";
