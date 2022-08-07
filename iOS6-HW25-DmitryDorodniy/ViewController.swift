@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = Constants.navigationTitle
+        navigationItem.title = "Marvel Digital Comics"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.addSubview(tableView)
@@ -68,7 +68,6 @@ class ViewController: UIViewController {
 
         if let path = path, let extention = extention {
             let url = path.makeHttps + size.set + extention
-            print(url)
             if let imageUrl = URL(string: url),
                let  imageData = try? Data(contentsOf: imageUrl) {
                 return UIImage(data: imageData)

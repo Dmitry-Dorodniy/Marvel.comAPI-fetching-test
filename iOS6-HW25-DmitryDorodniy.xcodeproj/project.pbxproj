@@ -11,7 +11,6 @@
 		8A9B898E289C551E0063503F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898D289C551E0063503F /* TableViewCell.swift */; };
 		8A9B8990289D254C0063503F /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898F289D254C0063503F /* String + Ext.swift */; };
 		8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8991289E6F8C0063503F /* DetailsViewController.swift */; };
-		8A9B8996289EEADB0063503F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8995289EEADB0063503F /* Constants.swift */; };
 		8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8997289EF3F90063503F /* NetworkManager.swift */; };
 		8A9B899A289FB8650063503F /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8999289FB8650063503F /* URLConstructor.swift */; };
 		8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */; };
@@ -29,7 +28,6 @@
 		8A9B898D289C551E0063503F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A9B898F289D254C0063503F /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		8A9B8991289E6F8C0063503F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		8A9B8995289EEADB0063503F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8A9B8997289EF3F90063503F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8A9B8999289FB8650063503F /* URLConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
 		8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				8A9B898D289C551E0063503F /* TableViewCell.swift */,
 				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
 				8A9B8999289FB8650063503F /* URLConstructor.swift */,
-				8A9B8995289EEADB0063503F /* Constants.swift */,
 				8A9B898F289D254C0063503F /* String + Ext.swift */,
 				8AE886CB289C32F7007780FD /* ComicsModel.swift */,
 				8AE886BD289BFC70007780FD /* Main.storyboard */,
@@ -215,7 +212,6 @@
 				8A9B8990289D254C0063503F /* String + Ext.swift in Sources */,
 				8AE886CC289C32F7007780FD /* ComicsModel.swift in Sources */,
 				8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */,
-				8A9B8996289EEADB0063503F /* Constants.swift in Sources */,
 				8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */,
 				8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */,
 				8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */,
