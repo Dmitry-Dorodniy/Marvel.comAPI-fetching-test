@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B7CF9B1-D2AF-4D9E-84E6-54238B19E614"
+            uuid = "FCF263DB-CF34-4144-ABA0-DB698573178C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOS6-HW25-DmitryDorodniy/ViewController.swift"
+            filePath = "iOS6-HW25-DmitryDorodniy/GetURL.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "fetchSeries(from:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getUrl(name:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10360358-E1A4-4B4A-90B2-17B23A0FC303"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS6-HW25-DmitryDorodniy/GetURL.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "getUrl(name:value:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

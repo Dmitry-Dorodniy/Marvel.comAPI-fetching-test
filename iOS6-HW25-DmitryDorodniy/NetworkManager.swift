@@ -6,25 +6,21 @@
 //
 
 import Foundation
-import Alamofire
+import Alamofire 
 
 class NetworkManager {
 
-    func fetchSeries(from url: String, complition: @escaping (Result<[Comic], Error>) -> Void) {
+    func fetchSeries(from url: String, complition: @escaping (Result<[Comic], AFError>) -> Void) {
 
         AF.request(url).responseDecodable(of: DataMarvel.self) { data in
-
-            DispatchQueue.main.async {
                 guard let dataValue = data.value else {
-                    complition(.failure(AFError.self as! Error))
-                    print("no data")
+                    if let error = data.error {
+                    complition(.failure(error))
+                    }
                     return }
 
                 let comics = dataValue.data.results
                 complition(.success(comics))
-//                self.comics = comics
-//                self.tableView.reloadData()
-            }
         }
     }
 }
