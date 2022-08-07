@@ -81,6 +81,7 @@
 				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
 				8AE886BB289BFC70007780FD /* ViewController.swift */,
 				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
+				8A9B898D289C551E0063503F /* TableViewCell.swift */,
 				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
 				8A9B8999289FB8650063503F /* URLConstructor.swift */,
 				8A9B8995289EEADB0063503F /* Constants.swift */,
@@ -88,7 +89,6 @@
 				8AE886CB289C32F7007780FD /* ComicsModel.swift */,
 				8AE886BD289BFC70007780FD /* Main.storyboard */,
 				8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */,
-				8A9B898D289C551E0063503F /* TableViewCell.swift */,
 				8AE886C0289BFC71007780FD /* Assets.xcassets */,
 				8AE886C5289BFC71007780FD /* Info.plist */,
 			);

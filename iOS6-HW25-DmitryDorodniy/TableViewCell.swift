@@ -14,6 +14,16 @@ class TableViewCell: UITableViewCell {
 
     }
 
+    func configureWith(_ comic: Comic, image: UIImage?) {
+        var content = self.defaultContentConfiguration()
+
+        content.text = "\(comic.title)"
+        content.image = image
+        self.accessoryType = .disclosureIndicator
+        self.contentConfiguration = content
+        
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

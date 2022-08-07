@@ -91,15 +91,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let comic = comics[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                        for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        var content = cell.defaultContentConfiguration()
-
-        content.text = "\(comic.title)"
         let image = getImage(path: comic.thumbnail?.path,
                              size: .small,
                              extention: comic.thumbnail?.imageExtension)
-        content.image = image
-        cell.accessoryType = .disclosureIndicator
-        cell.contentConfiguration = content
+        
+        cell.configureWith(comic, image: image)
 
         return cell
     }
@@ -110,8 +106,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
 
         detailVC.view.backgroundColor = .systemBackground
-//        let image = getImage(url: (comic.thumbnail?.path.makeUrlPortrait ?? "") +
-//                             (comic.thumbnail?.imageExtension ?? ""))
         let image = getImage(path: comic.thumbnail?.path,
                              size: .portrait,
                              extention: comic.thumbnail?.imageExtension)
