@@ -2,19 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+
     private let network = NetworkManager()
     private let urlConstructor = URLConstructor()
     private var timer: Timer?
     private var comics: [Comic] = []
-
-    @IBOutlet weak var tableView: UITableView!
-//    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = Constants.navigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         view.addSubview(tableView)
         setupSearchBar()
         setupTableView()
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "Search by title..."
         searchController.searchBar.delegate = self
     }
 
@@ -73,14 +74,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        let comic = comics[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                        for: indexPath) as? TableViewCell else { return UITableViewCell() }
         var content = cell.defaultContentConfiguration()
 
-        content.text = "\(comics[indexPath.row].title)"
-        let image = getImage(url: (comics[indexPath.row].thumbnail?.path.makeUrlThumb ?? "") +
-                             (comics[indexPath.row].thumbnail?.imageExtension ?? ""))
+        content.text = "\(comic.title)"
+        let image = getImage(url: (comic.thumbnail?.path.makeUrlThumb ?? "") +
+                             (comic.thumbnail?.imageExtension ?? ""))
         content.image = image
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
@@ -89,17 +90,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(comics[indexPath.row].title)
+        let comic = comics[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
 
         detailVC.view.backgroundColor = .systemBackground
-        let image = getImage(url: (comics[indexPath.row].thumbnail?.path.makeUrlPortrait ?? "") +
-                             (comics[indexPath.row].thumbnail?.imageExtension ?? ""))
-        detailVC.portraitImageView.image = image
-        detailVC.nameLabel.text = comics[indexPath.row].title
-        detailVC.detailLabel.text = comics[indexPath.row].description
-
+        let image = getImage(url: (comic.thumbnail?.path.makeUrlPortrait ?? "") +
+                             (comic.thumbnail?.imageExtension ?? ""))
+        detailVC.configureWith(comic, image: image)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -108,23 +106,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else { return }
         let inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
 
-        fetchComics(from: urlConstructor.getUrl(name: "title", value: inputedText))
-
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-
+        timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { _ in
             self.fetchComics(from: self.urlConstructor.getUrl(name: "title", value: inputedText))
-            if 
-        }
-        )
+            if self.comics.isEmpty {
+                self.showAlert(title: "Title error", message: "Character not found")
+            }
+        })
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         fetchComics(from: Constants.marvelDigitalComics)
     }
 }
+
 
 
 

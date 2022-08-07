@@ -1,10 +1,3 @@
-//
-//  NetworkManager.swift
-//  iOS6-HW25-DmitryDorodniy
-//
-//  Created by Dmitry Dorodniy on 06.08.2022.
-//
-
 import Foundation
 import Alamofire 
 
