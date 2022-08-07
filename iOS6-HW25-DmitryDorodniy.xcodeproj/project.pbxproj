@@ -11,12 +11,15 @@
 		8A9B898E289C551E0063503F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898D289C551E0063503F /* TableViewCell.swift */; };
 		8A9B8990289D254C0063503F /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898F289D254C0063503F /* String + Ext.swift */; };
 		8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8991289E6F8C0063503F /* DetailsViewController.swift */; };
+		8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8997289EF3F90063503F /* NetworkManager.swift */; };
+		8A9B899A289FB8650063503F /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8999289FB8650063503F /* URLConstructor.swift */; };
+		8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */; };
 		8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886B7289BFC70007780FD /* AppDelegate.swift */; };
 		8AE886BC289BFC70007780FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886BB289BFC70007780FD /* ViewController.swift */; };
 		8AE886BF289BFC70007780FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE886BD289BFC70007780FD /* Main.storyboard */; };
 		8AE886C1289BFC71007780FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE886C0289BFC71007780FD /* Assets.xcassets */; };
 		8AE886C4289BFC71007780FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */; };
-		8AE886CC289C32F7007780FD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886CB289C32F7007780FD /* Characters.swift */; };
+		8AE886CC289C32F7007780FD /* ComicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886CB289C32F7007780FD /* ComicsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		8A9B898D289C551E0063503F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A9B898F289D254C0063503F /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		8A9B8991289E6F8C0063503F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8A9B8997289EF3F90063503F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8A9B8999289FB8650063503F /* URLConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
+		8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		8AE886B4289BFC70007780FD /* iOS6-HW25-DmitryDorodniy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS6-HW25-DmitryDorodniy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE886B7289BFC70007780FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE886BB289BFC70007780FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +38,7 @@
 		8AE886C0289BFC71007780FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE886C3289BFC71007780FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AE886C5289BFC71007780FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AE886CB289C32F7007780FD /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		8AE886CB289C32F7007780FD /* ComicsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsModel.swift; sourceTree = "<group>"; };
 		EC39E389FC0219A47400577C /* Pods-iOS6-HW25-DmitryDorodniy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS6-HW25-DmitryDorodniy.release.xcconfig"; path = "Target Support Files/Pods-iOS6-HW25-DmitryDorodniy/Pods-iOS6-HW25-DmitryDorodniy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +54,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A07224228A0577200C9DDD3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8A07224528A0585500C9DDD3 /* App */,
+				8A07224628A0586D00C9DDD3 /* Scenes */,
+				8A07224728A058AA00C9DDD3 /* Extentions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8A07224328A057C300C9DDD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886BD289BFC70007780FD /* Main.storyboard */,
+				8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */,
+				8AE886C0289BFC71007780FD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A07224428A0584400C9DDD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886CB289C32F7007780FD /* ComicsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A07224528A0585500C9DDD3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A07224628A0586D00C9DDD3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8A07224828A058EC00C9DDD3 /* Network */,
+				8A07224428A0584400C9DDD3 /* Model */,
+				8A07224928A0592700C9DDD3 /* ViewController */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8A07224728A058AA00C9DDD3 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				8A9B898F289D254C0063503F /* String + Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		8A07224828A058EC00C9DDD3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
+				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
+				8A9B8999289FB8650063503F /* URLConstructor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8A07224928A0592700C9DDD3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8AE886BB289BFC70007780FD /* ViewController.swift */,
+				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
+				8A9B898D289C551E0063503F /* TableViewCell.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		8AE886AB289BFC70007780FD = {
 			isa = PBXGroup;
 			children = (
@@ -69,15 +149,8 @@
 		8AE886B6289BFC70007780FD /* iOS6-HW25-DmitryDorodniy */ = {
 			isa = PBXGroup;
 			children = (
-				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
-				8AE886BB289BFC70007780FD /* ViewController.swift */,
-				8A9B8991289E6F8C0063503F /* DetailsViewController.swift */,
-				8A9B898F289D254C0063503F /* String + Ext.swift */,
-				8AE886CB289C32F7007780FD /* Characters.swift */,
-				8AE886BD289BFC70007780FD /* Main.storyboard */,
-				8A9B898D289C551E0063503F /* TableViewCell.swift */,
-				8AE886C0289BFC71007780FD /* Assets.xcassets */,
-				8AE886C2289BFC71007780FD /* LaunchScreen.storyboard */,
+				8A07224228A0577200C9DDD3 /* Sources */,
+				8A07224328A057C300C9DDD3 /* Resources */,
 				8AE886C5289BFC71007780FD /* Info.plist */,
 			);
 			path = "iOS6-HW25-DmitryDorodniy";
@@ -198,10 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE886BC289BFC70007780FD /* ViewController.swift in Sources */,
+				8A9B899A289FB8650063503F /* URLConstructor.swift in Sources */,
 				8A9B898E289C551E0063503F /* TableViewCell.swift in Sources */,
 				8A9B8990289D254C0063503F /* String + Ext.swift in Sources */,
-				8AE886CC289C32F7007780FD /* Characters.swift in Sources */,
+				8AE886CC289C32F7007780FD /* ComicsModel.swift in Sources */,
+				8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */,
 				8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */,
+				8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */,
 				8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
