@@ -14,6 +14,7 @@
 		8A9B8996289EEADB0063503F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8995289EEADB0063503F /* Constants.swift */; };
 		8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8997289EF3F90063503F /* NetworkManager.swift */; };
 		8A9B899A289FB8650063503F /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8999289FB8650063503F /* URLConstructor.swift */; };
+		8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */; };
 		8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886B7289BFC70007780FD /* AppDelegate.swift */; };
 		8AE886BC289BFC70007780FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE886BB289BFC70007780FD /* ViewController.swift */; };
 		8AE886BF289BFC70007780FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE886BD289BFC70007780FD /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		8A9B8995289EEADB0063503F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8A9B8997289EF3F90063503F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8A9B8999289FB8650063503F /* URLConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
+		8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		8AE886B4289BFC70007780FD /* iOS6-HW25-DmitryDorodniy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS6-HW25-DmitryDorodniy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE886B7289BFC70007780FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE886BB289BFC70007780FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				8AE886B7289BFC70007780FD /* AppDelegate.swift */,
+				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
 				8AE886BB289BFC70007780FD /* ViewController.swift */,
 				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
 				8A9B8999289FB8650063503F /* URLConstructor.swift */,
@@ -214,6 +217,7 @@
 				8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */,
 				8A9B8996289EEADB0063503F /* Constants.swift in Sources */,
 				8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */,
+				8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */,
 				8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

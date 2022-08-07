@@ -56,13 +56,19 @@ class ViewController: UIViewController {
         }
     }
 
-    private func getImage(url: String) -> UIImage? {
-        if let imageUrl = URL(string: url),
-           let  imageData = try? Data(contentsOf: imageUrl) {
-            return UIImage(data: imageData)
-        } else {
-            return UIImage(systemName: "photo.artframe")
+    private func getImage(path: String?, size: ImageSize, extention: String?) -> UIImage? {
+        
+        if let path = path, let extention = extention {
+            let url = path.makeHttps + size.set + extention
+            print(url)
+            if let imageUrl = URL(string: url),
+               let  imageData = try? Data(contentsOf: imageUrl) {
+                return UIImage(data: imageData)
+            } else {
+                return UIImage(systemName: "photo.artframe")
+            }
         }
+        return UIImage(systemName: "photo.artframe")
     }
 }
 
@@ -80,8 +86,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         var content = cell.defaultContentConfiguration()
 
         content.text = "\(comic.title)"
-        let image = getImage(url: (comic.thumbnail?.path.makeUrlThumb ?? "") +
-                             (comic.thumbnail?.imageExtension ?? ""))
+        let image = getImage(path: comic.thumbnail?.path,
+                             size: .small,
+                             extention: comic.thumbnail?.imageExtension)
         content.image = image
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
@@ -95,8 +102,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
 
         detailVC.view.backgroundColor = .systemBackground
-        let image = getImage(url: (comic.thumbnail?.path.makeUrlPortrait ?? "") +
-                             (comic.thumbnail?.imageExtension ?? ""))
+//        let image = getImage(url: (comic.thumbnail?.path.makeUrlPortrait ?? "") +
+//                             (comic.thumbnail?.imageExtension ?? ""))
+        let image = getImage(path: comic.thumbnail?.path,
+                             size: .portrait,
+                             extention: comic.thumbnail?.imageExtension)
         detailVC.configureWith(comic, image: image)
         navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -107,11 +117,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else { return }
-        let inputedText = searchText.replacingOccurrences(of: " ", with: "%20")
-
+        
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { _ in
-            self.fetchComics(from: self.urlConstructor.getUrl(name: "title", value: inputedText))
+            self.fetchComics(from: self.urlConstructor.getUrl(name: "title", value: searchText))
             if self.comics.isEmpty {
                 self.showAlert(title: "Title error", message: "Character not found")
             }
@@ -119,7 +128,7 @@ extension ViewController: UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        fetchComics(from: Constants.marvelDigitalComics)
+        fetchComics(from: urlConstructor.getUrl(name: nil, value: nil))
     }
 }
 
