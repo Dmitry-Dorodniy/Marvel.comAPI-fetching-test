@@ -46,8 +46,8 @@
             filePath = "iOS6-HW25-DmitryDorodniy/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "getImage(path:size:extention:)"
             landmarkType = "7">
          </BreakpointContent>
