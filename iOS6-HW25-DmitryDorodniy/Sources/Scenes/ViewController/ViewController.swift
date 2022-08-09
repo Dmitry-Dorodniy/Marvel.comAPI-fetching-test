@@ -5,6 +5,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private let network = NetworkManager()
     private let urlConstructor = URLConstructor()
@@ -52,9 +53,13 @@ class ViewController: UIViewController {
     // MARK: - Private functions
 
     private func fetchComics(from url: String) {
+        activityIndicator.startAnimating()
+        tableView.backgroundView = activityIndicator
         network.fetchSeries(from: url) { (result) in
             switch result {
             case .success(let comics):
+                self.activityIndicator.stopAnimating()
+//                self.activityIndicator.isHidden = true
                 self.comics = comics
                 if self.comics.isEmpty {
                     self.showAlert(title: ":(", message: "Title not found")
