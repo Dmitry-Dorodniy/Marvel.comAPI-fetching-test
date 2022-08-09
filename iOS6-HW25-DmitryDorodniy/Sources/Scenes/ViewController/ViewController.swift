@@ -80,17 +80,15 @@ class ViewController: UIViewController {
     }
 
     private func getImage(path: String?, size: ImageSize, extention: String?) -> UIImage? {
-
+var image = UIImage(systemName: "photo.artframe")
         if let path = path, let extention = extention {
             let url = path.makeHttps + size.set + extention
             if let imageUrl = URL(string: url),
                let  imageData = try? Data(contentsOf: imageUrl) {
-                return UIImage(data: imageData)
-            } else {
-                return UIImage(systemName: "photo.artframe")
+                image = UIImage(data: imageData)
             }
         }
-        return UIImage(systemName: "photo.artframe")
+        return image
     }
 }
 
