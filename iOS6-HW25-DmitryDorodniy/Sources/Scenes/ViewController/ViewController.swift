@@ -60,17 +60,18 @@ class ViewController: UIViewController {
 
     private func fetchComics(from url: String) {
         spinnerIndicator.startAnimating()
-
         network.fetchSeries(from: url) { (result) in
             switch result {
             case .success(let comics):
-                self.spinnerIndicator.stopAnimating()
-
-                self.comics = comics
-                if self.comics.isEmpty {
-                    self.showAlert(title: ":(", message: "Title not found")
+                DispatchQueue.main.async {
+                    self.spinnerIndicator.stopAnimating()
+                    self.comics = comics
+                    if self.comics.isEmpty {
+                        self.showAlert(title: ":(", message: "Title not found")
+                    }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
+
             case .failure(let error):
                 print("Error received requesting data: \(error.localizedDescription)")
                 self.showAlert(title: "Request error", message: error.localizedDescription)
