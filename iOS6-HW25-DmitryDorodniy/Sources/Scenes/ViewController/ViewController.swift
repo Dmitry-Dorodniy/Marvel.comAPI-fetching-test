@@ -5,7 +5,13 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    lazy var spinnerIndicator: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        view.addSubview(spinner)
+        spinner.center = view.center
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
 
     private let network = NetworkManager()
     private let urlConstructor = URLConstructor()
@@ -53,13 +59,13 @@ class ViewController: UIViewController {
     // MARK: - Private functions
 
     private func fetchComics(from url: String) {
-        activityIndicator.startAnimating()
-        tableView.backgroundView = activityIndicator
+        spinnerIndicator.startAnimating()
+
         network.fetchSeries(from: url) { (result) in
             switch result {
             case .success(let comics):
-                self.activityIndicator.stopAnimating()
-//                self.activityIndicator.isHidden = true
+                self.spinnerIndicator.stopAnimating()
+
                 self.comics = comics
                 if self.comics.isEmpty {
                     self.showAlert(title: ":(", message: "Title not found")
