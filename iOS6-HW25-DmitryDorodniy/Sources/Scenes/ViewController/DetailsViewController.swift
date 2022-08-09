@@ -6,8 +6,9 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var portraitImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-
+   
+    @IBOutlet weak var detailLabel: UITextView!
+    
     // MARK: - Configuration
 
     func configureWith(_ comic: Comic, image: UIImage?) {
