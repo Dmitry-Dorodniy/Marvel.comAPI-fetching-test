@@ -2,7 +2,7 @@ import Foundation
 
 class URLConstructor {
 
-    func getUrl(name: String?, value: String?) -> String {
+    func getMasterUrl(name: String?, value: String?) -> String {
         var components = URLComponents()
         components.scheme = "https"
         print(components)
@@ -20,5 +20,15 @@ class URLConstructor {
         let url = components.url?.absoluteString ?? ""
         print(url)
         return url
+    }
+
+ func getImageUrl(path: String?, size: ImageSize, extention: String?) -> String? {
+
+        if let path = path, let extention = extention {
+            let url = path.makeHttps + size.set + extention
+            print(url)
+            return url
+        }
+       return nil
     }
 }

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         setupSearchBar()
         setupTableView()
-        fetchComics(from: urlConstructor.getUrl(name: nil, value: nil))
+        fetchComics(from: urlConstructor.getMasterUrl(name: nil, value: nil))
     }
 
     // MARK: - Settings Views
@@ -79,17 +79,22 @@ class ViewController: UIViewController {
         }
     }
 
-    private func getImage(path: String?, size: ImageSize, extention: String?) -> UIImage? {
-var image = UIImage(systemName: "photo.artframe")
+    private func getImage(path: String?, size: ImageSize, extention: String?) -> String {
+
         if let path = path, let extention = extention {
             let url = path.makeHttps + size.set + extention
-            if let imageUrl = URL(string: url),
-               let  imageData = try? Data(contentsOf: imageUrl) {
-                image = UIImage(data: imageData)
-            }
+            //            if let imageUrl = URL(string: url),
+            //               let  imageData = try? Data(contentsOf: imageUrl) {
+            //                image = UIImage(data: imageData)
+            //            }
+            //        }
+            //        return image
+            print(url)
+            return url
         }
-        return image
+        return ""
     }
+
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -103,11 +108,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let comic = comics[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                        for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        let image = getImage(path: comic.thumbnail?.path,
-                             size: .small,
-                             extention: comic.thumbnail?.imageExtension)
+//        let image = getImage(path: comic.thumbnail?.path,
+//                             size: .small,
+//                             extention: comic.thumbnail?.imageExtension)
         
-        cell.configureWith(comic, image: image)
+        cell.configureWith(comic)
 
         return cell
     }
@@ -118,11 +123,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
 
         detailVC.view.backgroundColor = .systemBackground
-        let image = getImage(path: comic.thumbnail?.path,
-                             size: .portrait,
-                             extention: comic.thumbnail?.imageExtension)
-        detailVC.configureWith(comic, image: image)
+        detailVC.configureWith(comic)
         navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -134,12 +137,12 @@ extension ViewController: UISearchBarDelegate {
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
-            self.fetchComics(from: self.urlConstructor.getUrl(name: "title", value: searchText))
+            self.fetchComics(from: self.urlConstructor.getMasterUrl(name: "title", value: searchText))
         })
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        fetchComics(from: urlConstructor.getUrl(name: nil, value: nil))
+        fetchComics(from: urlConstructor.getMasterUrl(name: nil, value: nil))
     }
 }
 
