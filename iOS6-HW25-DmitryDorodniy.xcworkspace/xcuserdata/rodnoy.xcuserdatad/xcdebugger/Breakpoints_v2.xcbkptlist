@@ -94,8 +94,8 @@
             filePath = "iOS6-HW25-DmitryDorodniy/Sources/Scenes/ViewController/TableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "configureWith(_:)"
             landmarkType = "7">
          </BreakpointContent>
