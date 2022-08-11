@@ -78,23 +78,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    private func getImage(path: String?, size: ImageSize, extention: String?) -> String {
-
-        if let path = path, let extention = extention {
-            let url = path.makeHttps + size.set + extention
-            //            if let imageUrl = URL(string: url),
-            //               let  imageData = try? Data(contentsOf: imageUrl) {
-            //                image = UIImage(data: imageData)
-            //            }
-            //        }
-            //        return image
-            print(url)
-            return url
-        }
-        return ""
-    }
-
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -111,10 +94,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let comic = comics[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                        for: indexPath) as? TableViewCell else { return UITableViewCell() }
-//        let image = getImage(path: comic.thumbnail?.path,
-//                             size: .small,
-//                             extention: comic.thumbnail?.imageExtension)
-        
+
         cell.configureWith(comic)
 
         return cell

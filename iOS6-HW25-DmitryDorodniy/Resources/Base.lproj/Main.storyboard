@@ -48,13 +48,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9an-6m-b2Q">
-                                <rect key="frame" x="50" y="44" width="314" height="558"/>
+                                <rect key="frame" x="70" y="44" width="274" height="487"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9an-6m-b2Q" secondAttribute="height" multiplier="261:464" id="Qeh-WW-Tne"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VzG-L1-48t">
-                                <rect key="frame" x="20" y="648" width="374" height="214"/>
+                                <rect key="frame" x="20" y="577" width="374" height="285"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -62,7 +62,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqq-eM-QKB">
-                                <rect key="frame" x="20" y="610" width="374" height="30"/>
+                                <rect key="frame" x="20" y="539" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9an-6m-b2Q" firstAttribute="centerX" secondItem="P8A-Cj-rOB" secondAttribute="centerX" id="589-Ot-bcV"/>
-                            <constraint firstItem="Oqd-z9-Qag" firstAttribute="trailing" secondItem="9an-6m-b2Q" secondAttribute="trailing" constant="50" id="A6J-Ak-qFZ"/>
+                            <constraint firstItem="Oqd-z9-Qag" firstAttribute="trailing" secondItem="9an-6m-b2Q" secondAttribute="trailing" constant="70" id="A6J-Ak-qFZ"/>
                             <constraint firstItem="VzG-L1-48t" firstAttribute="leading" secondItem="Oqd-z9-Qag" secondAttribute="leading" constant="20" id="IMs-q0-98Z"/>
                             <constraint firstItem="iqq-eM-QKB" firstAttribute="leading" secondItem="Oqd-z9-Qag" secondAttribute="leading" constant="20" id="Pe9-rQ-UmY"/>
                             <constraint firstItem="VzG-L1-48t" firstAttribute="bottom" secondItem="Oqd-z9-Qag" secondAttribute="bottom" id="aLq-Lc-4aC"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="9an-6m-b2Q" firstAttribute="top" secondItem="Oqd-z9-Qag" secondAttribute="top" id="fvh-hO-5Az"/>
                             <constraint firstItem="iqq-eM-QKB" firstAttribute="top" secondItem="9an-6m-b2Q" secondAttribute="bottom" constant="8" symbolic="YES" id="hg3-9S-sDD"/>
                             <constraint firstItem="Oqd-z9-Qag" firstAttribute="trailing" secondItem="VzG-L1-48t" secondAttribute="trailing" constant="20" id="jBm-xc-o7y"/>
-                            <constraint firstItem="9an-6m-b2Q" firstAttribute="leading" secondItem="Oqd-z9-Qag" secondAttribute="leading" constant="50" id="nps-ld-2N2"/>
+                            <constraint firstItem="9an-6m-b2Q" firstAttribute="leading" secondItem="Oqd-z9-Qag" secondAttribute="leading" constant="70" id="nps-ld-2N2"/>
                             <constraint firstItem="VzG-L1-48t" firstAttribute="top" secondItem="iqq-eM-QKB" secondAttribute="bottom" constant="8" symbolic="YES" id="vpu-ts-hY8"/>
                         </constraints>
                     </view>

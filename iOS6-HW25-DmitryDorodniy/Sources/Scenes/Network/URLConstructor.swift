@@ -13,7 +13,7 @@ class URLConstructor {
                                  URLQueryItem(name: "hasDigitalIssue", value: "true"),
                                  URLQueryItem(name: "orderBy", value: "focDate"),
                                  URLQueryItem(name: name ?? "", value: value),
-                                 URLQueryItem(name: "limit", value: "40"),
+                                 URLQueryItem(name: "limit", value: "50"),
                                  URLQueryItem(name: "ts", value: "1"),
                                  URLQueryItem(name: "apikey", value: "7e1b58c9e3967cddad472e676e668a4e"),
                                  URLQueryItem(name: "hash", value: "56ea6ee528ff5b2a8724f7a312bcc6f6")]

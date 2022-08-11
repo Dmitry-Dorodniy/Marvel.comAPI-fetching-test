@@ -6,20 +6,26 @@ class TableViewCell: UITableViewCell {
 
     private lazy var cellImageView: UIImageView = {
     let imageView = UIImageView()
-       imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-
         return imageView
    }()
+
+    lazy var titleLabel: UILabel = {
+        let tittle = UILabel()
+        tittle.numberOfLines = 0
+        return tittle
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "cell")
 
+        self.accessoryType = .disclosureIndicator
         setupHierarchy()
     }
 
     func setupHierarchy() {
-        contentView.addSubview(cellImageView)
+        contentView.addSubviewsForAutoLayout([cellImageView,
+                                              titleLabel])
     }
 
     override func layoutSubviews() {
@@ -32,6 +38,11 @@ class TableViewCell: UITableViewCell {
             cellImageView.heightAnchor.constraint(equalTo: cellImageView.widthAnchor, multiplier: 0.69)
         ])
 
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -5),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 
     func configureWith(_ comic: Comic) {
@@ -42,18 +53,11 @@ class TableViewCell: UITableViewCell {
         } else {
             cellImageView.image = UIImage(systemName: "photo.artframe")
         }
-
-
-//        var content = self.defaultContentConfiguration()
-//        content.text = "\(comic.title)"
-//
-////        content.image = cellImageView.image
-//        self.contentConfiguration = content
-
-        self.accessoryType = .disclosureIndicator
+        titleLabel.text = "\(comic.title)"
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
