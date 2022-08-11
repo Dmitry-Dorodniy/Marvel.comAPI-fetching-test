@@ -10,7 +10,7 @@ class TableViewCell: UITableViewCell {
         return imageView
    }()
 
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let tittle = UILabel()
         tittle.numberOfLines = 0
         return tittle
@@ -23,7 +23,7 @@ class TableViewCell: UITableViewCell {
         setupHierarchy()
     }
 
-    func setupHierarchy() {
+    private func setupHierarchy() {
         contentView.addSubviewsForAutoLayout([cellImageView,
                                               titleLabel])
     }

@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
-    lazy var spinnerIndicator: UIActivityIndicatorView = {
+    private lazy var spinnerIndicator: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         view.addSubview(spinner)
         spinner.center = view.center
@@ -23,16 +23,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Marvel Digital Comics"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        view.addSubview(tableView)
-        setupSearchBar()
-        setupTableView()
-        fetchComics(from: urlConstructor.getMasterUrl(name: nil, value: nil))
+        setupView()
+        fetchComics(from: urlConstructor.getMasterUrl(name: nil,
+                                                      value: nil))
     }
 
     // MARK: - Settings Views
+
+    private func setupView() {
+        navigationItem.title = "Marvel Digital Comics"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.addSubview(tableView)
+
+        setupSearchBar()
+        setupTableView()
+    }
     
     private func setupTableView() {
         tableView.delegate = self
@@ -103,8 +108,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comic = comics[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
 
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
         detailVC.view.backgroundColor = .systemBackground
         detailVC.configureWith(comic)
         navigationController?.pushViewController(detailVC, animated: true)

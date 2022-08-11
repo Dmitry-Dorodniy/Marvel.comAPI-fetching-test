@@ -78,8 +78,8 @@
             filePath = "iOS6-HW25-DmitryDorodniy/Sources/Scenes/ViewController/DetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "configureWith(_:)"
             landmarkType = "7">
          </BreakpointContent>
