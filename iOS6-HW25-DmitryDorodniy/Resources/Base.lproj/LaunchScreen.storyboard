@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel" translatesAutoresizingMaskIntoConstraints="NO" id="bk5-xh-2MJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel" translatesAutoresizingMaskIntoConstraints="NO" id="bk5-xh-2MJ">
                                 <rect key="frame" x="30" y="377" width="354" height="142"/>
                             </imageView>
                         </subviews>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="marvel" width="354" height="142"/>
+        <image name="Marvel" width="354" height="142"/>
     </resources>
 </document>
