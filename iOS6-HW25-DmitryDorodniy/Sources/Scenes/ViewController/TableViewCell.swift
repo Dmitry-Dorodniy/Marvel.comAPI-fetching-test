@@ -49,7 +49,7 @@ class TableViewCell: UITableViewCell {
         if let imageUrlString = urlConstructor.getImageUrl(path: comic.thumbnail?.path,
                                                            size: .small,
                                                            extention: comic.thumbnail?.imageExtension) {
-            cellImageView.loadImage(at: imageUrlString)
+            cellImageView.loadImageWithCash(at: imageUrlString)
         } else {
             cellImageView.image = UIImage(systemName: "photo.artframe")
         }

@@ -15,7 +15,7 @@ class DetailsViewController: UIViewController {
         if let imageUrlString = urlConstructor.getImageUrl(path: comic.thumbnail?.path,
                                                            size: .portrait,
                                                            extention: comic.thumbnail?.imageExtension) {
-            portraitImageView.loadImage(at: imageUrlString)
+            portraitImageView.loadImageWithCash(at: imageUrlString)
         } else {
             setupDefaultView()
         }

@@ -1,6 +1,7 @@
 import UIKit
 
 var imageCahce = NSCache<AnyObject, AnyObject>()
+
 extension UIImageView {
     func loadImage(at urlString: String) {
 
@@ -18,6 +19,25 @@ extension UIImageView {
                     }
                 }
             }
+        }
+    }
+
+    func loadImageWithCash(at urlString: String) {
+
+        if let url = URL(string: urlString) {
+            let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 30)
+            let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
+                }
+            }
+            task.resume()
         }
     }
 }
