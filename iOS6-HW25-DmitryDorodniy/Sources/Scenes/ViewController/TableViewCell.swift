@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
 
     let urlConstructor = URLConstructor()
 
@@ -49,7 +49,20 @@ class TableViewCell: UITableViewCell {
         if let imageUrlString = urlConstructor.getImageUrl(path: comic.thumbnail?.path,
                                                            size: .small,
                                                            extention: comic.thumbnail?.imageExtension) {
-            cellImageView.loadImageWithCash(at: imageUrlString)
+//            cellImageView.loadImageWithCash(at: imageUrlString)
+            NetworkManager().loadImage(from: imageUrlString) { result in
+                switch result {
+                case .success(let data):
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.cellImageView.image = image
+                        }
+                    }
+                case .failure(let error):
+                    print("Error \(error.localizedDescription)")
+                }
+            }
+
         } else {
             cellImageView.image = UIImage(systemName: "photo.artframe")
         }

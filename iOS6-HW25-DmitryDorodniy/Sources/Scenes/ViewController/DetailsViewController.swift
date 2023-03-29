@@ -1,7 +1,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     // MARK: - Properties
     private let urlConstructor = URLConstructor()
     @IBOutlet weak var portraitImageView: UIImageView!
@@ -9,18 +9,31 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailLabel: UITextView!
     
     // MARK: - Configuration
-
+    
     func configureWith(_ comic: Comic) {
         setupDefaultView()
         if let imageUrlString = urlConstructor.getImageUrl(path: comic.thumbnail?.path,
                                                            size: .portrait,
                                                            extention: comic.thumbnail?.imageExtension) {
-            portraitImageView.loadImageWithCash(at: imageUrlString)
+            
+            //            portraitImageView.loadImageWithCash(at: imageUrlString)
+            NetworkManager().loadImage(from: imageUrlString) { result in
+                switch result {
+                case .success(let data):
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.portraitImageView.image = image
+                        }
+                    }
+                case .failure(let error):
+                    print("Error \(error.localizedDescription)")
+                }
+            }
         } else {
             setupDefaultView()
         }
         nameLabel.text = comic.title
-
+        
         if let description = comic.description {
             detailLabel.text = description
         } else {
@@ -29,7 +42,7 @@ class DetailsViewController: UIViewController {
             detailLabel.text = "There no description here..."
         }
     }
-
+    
     func setupDefaultView() {
         portraitImageView.tintColor = .systemGray5
         portraitImageView.image = UIImage(systemName: "icloud.and.arrow.down")
