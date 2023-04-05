@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E7EC27B0B6C9B2F6543F115 /* libPods-iOS6-HW25-DmitryDorodniy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 827C08D19B7156448D8E1C5C /* libPods-iOS6-HW25-DmitryDorodniy.a */; };
+		8A2B639829DDA1D30083B6B8 /* NetworkManagerAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2B639729DDA1D30083B6B8 /* NetworkManagerAsync.swift */; };
 		8A9B898E289C551E0063503F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898D289C551E0063503F /* TableViewCell.swift */; };
 		8A9B8990289D254C0063503F /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B898F289D254C0063503F /* String + Ext.swift */; };
 		8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B8991289E6F8C0063503F /* DetailsViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		7069DFFEB5DFFC5DDAB5E589 /* Pods-iOS6-HW25-DmitryDorodniy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS6-HW25-DmitryDorodniy.debug.xcconfig"; path = "Target Support Files/Pods-iOS6-HW25-DmitryDorodniy/Pods-iOS6-HW25-DmitryDorodniy.debug.xcconfig"; sourceTree = "<group>"; };
 		827C08D19B7156448D8E1C5C /* libPods-iOS6-HW25-DmitryDorodniy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS6-HW25-DmitryDorodniy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2B639729DDA1D30083B6B8 /* NetworkManagerAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAsync.swift; sourceTree = "<group>"; };
 		8A9B898D289C551E0063503F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A9B898F289D254C0063503F /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		8A9B8991289E6F8C0063503F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				8AE7DE8C28A04AA0002D6872 /* ImageSize.swift */,
 				8A9B8997289EF3F90063503F /* NetworkManager.swift */,
+				8A2B639729DDA1D30083B6B8 /* NetworkManagerAsync.swift */,
 				8A9B8999289FB8650063503F /* URLConstructor.swift */,
 			);
 			path = Network;
@@ -279,6 +282,7 @@
 				8A9B8990289D254C0063503F /* String + Ext.swift in Sources */,
 				8AE886CC289C32F7007780FD /* ComicsModel.swift in Sources */,
 				8A9B8998289EF3F90063503F /* NetworkManager.swift in Sources */,
+				8A2B639829DDA1D30083B6B8 /* NetworkManagerAsync.swift in Sources */,
 				8AE886B8289BFC70007780FD /* AppDelegate.swift in Sources */,
 				8AE7DE8D28A04AA0002D6872 /* ImageSize.swift in Sources */,
 				8A9B8992289E6F8C0063503F /* DetailsViewController.swift in Sources */,

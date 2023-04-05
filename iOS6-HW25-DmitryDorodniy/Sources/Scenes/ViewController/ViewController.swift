@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         return spinner
     }()
 
-    private let network = NetworkManager()
+//    private let network = NetworkManager()
     private let urlConstructor = URLConstructor()
     private var timer: Timer?
     private var comics: [Comic] = []
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
 
     private func fetchComics(from url: String) {
         spinnerIndicator.startAnimating()
-        network.fetchSeries(from: url) { (result) in
+        NetworkManager.shared.fetchSeries(from: url) { (result) in
             switch result {
             case .success(let comics):
                 DispatchQueue.main.async {
@@ -116,14 +116,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView,
+   func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         let comic = comics[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
         detailVC.view.backgroundColor = .systemBackground
-        detailVC.configureWith(comic)
+//        detailVC.configureWith(comic)
+       Task {
+           await detailVC.configureWithAsyncLoad(comic)
+       }
         navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

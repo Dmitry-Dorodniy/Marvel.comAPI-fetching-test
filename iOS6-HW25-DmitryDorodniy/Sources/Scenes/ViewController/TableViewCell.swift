@@ -50,7 +50,7 @@ final class TableViewCell: UITableViewCell {
                                                            size: .small,
                                                            extention: comic.thumbnail?.imageExtension) {
 //            cellImageView.loadImageWithCash(at: imageUrlString)
-            NetworkManager().loadImage(from: imageUrlString) { result in
+            NetworkManager.shared.loadImage(from: imageUrlString) { result in
                 switch result {
                 case .success(let data):
                     if let data = data, let image = UIImage(data: data) {
@@ -62,7 +62,6 @@ final class TableViewCell: UITableViewCell {
                     print("Error \(error.localizedDescription)")
                 }
             }
-
         } else {
             cellImageView.image = UIImage(systemName: "photo.artframe")
         }

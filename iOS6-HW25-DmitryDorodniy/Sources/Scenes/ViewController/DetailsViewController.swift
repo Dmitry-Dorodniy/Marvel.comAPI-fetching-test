@@ -16,8 +16,8 @@ class DetailsViewController: UIViewController {
                                                            size: .portrait,
                                                            extention: comic.thumbnail?.imageExtension) {
             
-            //            portraitImageView.loadImageWithCash(at: imageUrlString)
-            NetworkManager().loadImage(from: imageUrlString) { result in
+   //       portraitImageView.loadImageWithCash(at: imageUrlString)
+            NetworkManager.shared.loadImage(from: imageUrlString) { result in
                 switch result {
                 case .success(let data):
                     if let data = data, let image = UIImage(data: data) {
@@ -32,8 +32,38 @@ class DetailsViewController: UIViewController {
         } else {
             setupDefaultView()
         }
+
         nameLabel.text = comic.title
         
+        if let description = comic.description {
+            detailLabel.text = description
+        } else {
+            detailLabel.textColor = .secondaryLabel
+            detailLabel.textAlignment = .center
+            detailLabel.text = "There no description here..."
+        }
+    }
+
+    func configureWithAsyncLoad(_ comic: Comic) async {
+        if let imageUrlString = urlConstructor.getImageUrl(path: comic.thumbnail?.path,
+                                                           size: .portrait,
+                                                           extention: comic.thumbnail?.imageExtension) {
+            do {
+                let data = try await NetworkManagerAsync.shared.loadImageAsync(from: imageUrlString)
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.portraitImageView.image = image
+                    }
+                }
+            } catch {
+                    print("invalid data")
+            }
+        } else {
+            setupDefaultView()
+        }
+
+        nameLabel.text = comic.title
+
         if let description = comic.description {
             detailLabel.text = description
         } else {

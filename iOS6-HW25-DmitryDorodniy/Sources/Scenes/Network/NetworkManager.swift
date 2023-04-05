@@ -1,9 +1,9 @@
-import Foundation
 import Alamofire 
 
 final class NetworkManager {
 
     static let shared = NetworkManager()
+    private init() { }
     
     func fetchSeries(from url: String, complition: @escaping (Result<[Comic], AFError>) -> Void) {
 
