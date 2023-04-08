@@ -68,6 +68,8 @@ final class TableViewCell: UITableViewCell {
         titleLabel.text = "\(comic.title)"
     }
 
+
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

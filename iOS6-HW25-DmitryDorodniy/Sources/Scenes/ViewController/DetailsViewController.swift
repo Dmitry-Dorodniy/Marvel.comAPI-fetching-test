@@ -56,7 +56,7 @@ class DetailsViewController: UIViewController {
                     }
                 }
             } catch {
-                    print("invalid data")
+                print("invalid data \(error.localizedDescription)")
             }
         } else {
             setupDefaultView()
